@@ -133,6 +133,8 @@ class RabbitStrategy(strategy.Strategy):
             except self.connection_errors, e:
                 pass
             except Exception, e:
+                import traceback
+                LOG.info("exception: %s" % traceback.format_exc())
                 # NOTE(comstud): Unfortunately it's possible for amqplib
                 # to return an error not covered by its transport
                 # connection_errors in the case of a timeout waiting for
