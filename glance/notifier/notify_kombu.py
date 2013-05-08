@@ -63,6 +63,7 @@ class RabbitStrategy(strategy.Strategy):
         self.retry_max_backoff = int(CONF.rabbit_retry_max_backoff)
 
         self.connection = None
+        self.connection_errors = None
         self.retry_attempts = 0
         try:
             self.reconnect()
